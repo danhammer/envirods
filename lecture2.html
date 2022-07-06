@@ -793,6 +793,11 @@ Name: a, dtype: int64
     <tr style="text-align: right;">
       <th></th>
       <th>ID</th>
+      <th>MINORPCT</th>
+      <th>LOWINCPCT</th>
+      <th>LESSHSPCT</th>
+      <th>PM25</th>
+      <th>PTSDF</th>
       <th>P_LDPNT</th>
       <th>P_LDPNT_D2</th>
       <th>VULEOPCT</th>
@@ -802,6 +807,11 @@ Name: a, dtype: int64
     <tr>
       <th>0</th>
       <td>10010201001</td>
+      <td>0.163522</td>
+      <td>0.385220</td>
+      <td>0.208134</td>
+      <td>9.690899</td>
+      <td>0.586754</td>
       <td>60.382488</td>
       <td>38.762556</td>
       <td>0.274371</td>
@@ -809,6 +819,11 @@ Name: a, dtype: int64
     <tr>
       <th>1</th>
       <td>10010201002</td>
+      <td>0.216006</td>
+      <td>0.163170</td>
+      <td>0.040678</td>
+      <td>9.690899</td>
+      <td>0.450601</td>
       <td>41.403686</td>
       <td>32.680975</td>
       <td>0.189588</td>
@@ -816,6 +831,11 @@ Name: a, dtype: int64
     <tr>
       <th>2</th>
       <td>10010202001</td>
+      <td>0.676543</td>
+      <td>0.501247</td>
+      <td>0.135563</td>
+      <td>9.711240</td>
+      <td>0.653377</td>
       <td>45.651211</td>
       <td>74.665031</td>
       <td>0.588895</td>
@@ -823,6 +843,11 @@ Name: a, dtype: int64
     <tr>
       <th>3</th>
       <td>10010202002</td>
+      <td>0.550082</td>
+      <td>0.393701</td>
+      <td>0.192000</td>
+      <td>9.711240</td>
+      <td>1.009395</td>
       <td>66.398228</td>
       <td>78.826782</td>
       <td>0.471891</td>
@@ -830,6 +855,11 @@ Name: a, dtype: int64
     <tr>
       <th>4</th>
       <td>10010203001</td>
+      <td>0.340401</td>
+      <td>0.308217</td>
+      <td>0.125473</td>
+      <td>9.745683</td>
+      <td>1.177764</td>
       <td>35.884283</td>
       <td>44.665845</td>
       <td>0.324309</td>
@@ -874,6 +904,11 @@ Name: a, dtype: int64
     <tr style="text-align: right;">
       <th></th>
       <th>ID</th>
+      <th>MINORPCT</th>
+      <th>LOWINCPCT</th>
+      <th>LESSHSPCT</th>
+      <th>PM25</th>
+      <th>PTSDF</th>
       <th>P_LDPNT</th>
       <th>P_LDPNT_D2</th>
       <th>VULEOPCT</th>
@@ -885,46 +920,71 @@ Name: a, dtype: int64
     <tr>
       <th>0</th>
       <td>10010201001</td>
+      <td>0.163522</td>
+      <td>0.385220</td>
+      <td>0.208134</td>
+      <td>9.690899</td>
+      <td>0.586754</td>
       <td>60.382488</td>
       <td>38.762556</td>
       <td>0.274371</td>
-      <td>-0.077346</td>
+      <td>-0.083100</td>
       <td>False</td>
     </tr>
     <tr>
       <th>1</th>
       <td>10010201002</td>
+      <td>0.216006</td>
+      <td>0.163170</td>
+      <td>0.040678</td>
+      <td>9.690899</td>
+      <td>0.450601</td>
       <td>41.403686</td>
       <td>32.680975</td>
       <td>0.189588</td>
-      <td>-0.162129</td>
+      <td>-0.167883</td>
       <td>False</td>
     </tr>
     <tr>
       <th>2</th>
       <td>10010202001</td>
+      <td>0.676543</td>
+      <td>0.501247</td>
+      <td>0.135563</td>
+      <td>9.711240</td>
+      <td>0.653377</td>
       <td>45.651211</td>
       <td>74.665031</td>
       <td>0.588895</td>
-      <td>0.237178</td>
+      <td>0.231424</td>
       <td>False</td>
     </tr>
     <tr>
       <th>3</th>
       <td>10010202002</td>
+      <td>0.550082</td>
+      <td>0.393701</td>
+      <td>0.192000</td>
+      <td>9.711240</td>
+      <td>1.009395</td>
       <td>66.398228</td>
       <td>78.826782</td>
       <td>0.471891</td>
-      <td>0.120174</td>
+      <td>0.114421</td>
       <td>False</td>
     </tr>
     <tr>
       <th>4</th>
       <td>10010203001</td>
+      <td>0.340401</td>
+      <td>0.308217</td>
+      <td>0.125473</td>
+      <td>9.745683</td>
+      <td>1.177764</td>
       <td>35.884283</td>
       <td>44.665845</td>
       <td>0.324309</td>
-      <td>-0.027408</td>
+      <td>-0.033162</td>
       <td>False</td>
     </tr>
   </tbody>
@@ -947,7 +1007,7 @@ Name: a, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x1193a3e10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x105c90d10&gt;
 </pre></div>
 </div>
 <img alt="_images/lecture2_37_1.png" src="_images/lecture2_37_1.png" />
@@ -967,7 +1027,7 @@ Name: a, dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x11a95dfd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.PathCollection at 0x117b79450&gt;
 </pre></div>
 </div>
 <img alt="_images/lecture2_39_1.png" src="_images/lecture2_39_1.png" />
