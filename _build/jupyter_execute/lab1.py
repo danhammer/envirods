@@ -14,9 +14,3 @@
 # 
 # 1. Create a `DataFrame` of random numbers with 100 rows and 4 columns. Name the columns `a`, `b`, `c`, and `d`.
 # 2. Create a scatter plot of column a against b. Set the size of each point on the scatterplot based on a new variable `adev`, which records the deviations of `a` from the average value of `a`.
-
-# In[ ]:
-
-
-
-

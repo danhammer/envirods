@@ -197,7 +197,7 @@ df.head()
 
 df["demo_index"] = df.VULEOPCT - df.VULEOPCT.mean()
 df["index_thresh"] = numpy.where(df.P_LDPNT > 90, True, False)
-df.head()
+df[["P_LDPNT", "P_LDPNT_D2", "VULEOPCT", "demo_index", "index_thresh"]].head()
 
 
 # Use `matplotlib` to plot the percentile of raw lead paint values for Census blocks against the EPA index based on lead paint exposure. Color the values for Census blocks with the highest levels of exposure to environmental harm.  A lot of the spread is driven by the demographic index (which isn't presented in this graph, but drives the value of the EPA index.)
