@@ -2,3 +2,4 @@ format: jb-book
 root: intro
 chapters:
 - file: lecture1
+- file: lecture2
