@@ -231,9 +231,3 @@ plt.scatter(
 
 
 # The punchline is that, even if a Census block has an extreme amount of lead paint exposure (an environmental catastrophe), it won't be considered as part of the Justice40 funding if it falls (even slightly) on the privileged side of the National Average.  There is a sharp discontinuity.  There are no sharp discontinuities in the real-world, especially in justice-related work.  I don't know what the right answer is, but it can't be this.
-
-# In[ ]:
-
-
-
-
