@@ -13,5 +13,5 @@
 # Even though the code will speak for itself for these questions, explain what you're doing in the **Text** cells.
 # 
 # 1. Create a `DataFrame` of random numbers with 100 rows and 4 columns. Name the columns `a`, `b`, `c`, and `d`.
-# 2. Create a scatter plot of column a against b. Set the size of each point on the scatterplot based on a new variable `adev`, which records the deviations of `a` from the average value of `a`.
+# 2. Create a scatter plot of column a against b. Set the size of each point on the scatterplot based on a new variable `adev`, which records the number of deviations of `a` from the average value of `a`. (Scale this variable by, say, 100 or more so that you can see the difference in the final plot.)
 # 3. Graph and examine the correlations between different variables in the `EJSCREEN_demo` dataset. Comment on the relationship, for example, between education and distance to "treatment storage and disposal facilities" (TSDFs). Is it positive or negative? Are there certain "mass points" or clusters of observations around a certain value (e.g., zero)?

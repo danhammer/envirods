@@ -3,4 +3,5 @@ root: intro
 chapters:
 - file: lecture1
 - file: lecture2
+- file: lecture3
 - file: lab1
