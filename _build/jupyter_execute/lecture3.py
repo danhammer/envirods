@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# ## Lecture 2
-# The **objective** of this lecutre is to introduce the manipulation of rectangular data in Pandas. There are many ways to manage data tables in Python, including the table frameworks used in DATA 8.  The concepts are important.  And, in fact, there is some value in not becoming too wedded to a particular library in the beginning.  So we will teach the concepts here, and offer practical examples in multiple frameworks.
+# ## Lecture 3
+# The **objective** of this lecture is to introduce the manipulation of rectangular data in Pandas. There are many ways to manage data tables in Python, including the table frameworks used in DATA 8.  The concepts are important.  And, in fact, there is some value in not becoming too wedded to a particular library in the beginning.  So we will teach the concepts here, and offer practical examples in multiple frameworks.
 
 # ### Sort, merge, and collapse
 
@@ -158,7 +158,7 @@ df.merge(dfx, on=['id', 't'], how='outer')
 
 
 # Source: https://www.cdc.gov/nchs/data_access/urban_rural.htm#Data_Files_and_Documentation
-nchs = pandas.read_excel("NCHSURCodes2013.xlsx")
+nchs = pandas.read_excel("https://github.com/danhammer/envirods/blob/main/data/NCHSURCodes2013.xlsx?raw=true")
 nchs = nchs[["FIPS code", "State Abr.", "County name", "2013 code"]]
 nchs.columns = ["fips", "state", "county", "classification"]
 
@@ -187,7 +187,7 @@ nchs = nchs.replace({'classification': remap_dict})
 # In[17]:
 
 
-ejdf = pandas.read_csv("EJSCREEN_sample.csv")
+ejdf = pandas.read_csv("https://raw.githubusercontent.com/danhammer/envirods/main/data/EJSCREEN_demo2.csv")
 ejdf = ejdf.merge(nchs, how='left', on='fips')
 
 
