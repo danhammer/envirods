@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# ## Lecture 3
+# ## Week 2: Table Manipulations and Environmental Justice
 # The **objective** of this lecture is to introduce the manipulation of rectangular data in Pandas. There are many ways to manage data tables in Python, including the table frameworks used in DATA 8.  The concepts are important.  And, in fact, there is some value in not becoming too wedded to a particular library in the beginning.  So we will teach the concepts here, and offer practical examples in multiple frameworks.
 
 # ### Sort, merge, and collapse
