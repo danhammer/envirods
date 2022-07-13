@@ -4,8 +4,9 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Search &#8212; Environmental Data Science</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Lab 2: Plotting distributions &#8212; Environmental Data Science</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -30,7 +31,6 @@
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
@@ -50,19 +50,15 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script src="_static/searchtools.js"></script>
-    <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="#" />
-  <script src="searchindex.js" defer></script>
-  
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Lab 1: Basic operations" href="lab1.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
 
     <!-- Google Analytics -->
     
-
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
 <!-- Checkboxes to toggle the left sidebar -->
@@ -103,7 +99,7 @@ const thebe_selector_output = ".output, .cell_output"
       <h1 class="site-logo" id="site-title">Environmental Data Science</h1>
       
     </a>
-</div><form class="bd-search d-flex align-items-center" action="#" method="get">
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
@@ -116,7 +112,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="lecture1.html">
    Week 1: Course overview
@@ -142,8 +138,8 @@ const thebe_selector_output = ".output, .cell_output"
    Lab 1: Basic operations
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab2.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Lab 2: Plotting distributions
   </a>
  </li>
@@ -198,6 +194,35 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/danhammer/envirods/master?urlpath=tree/docs/lab2.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -237,7 +262,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/danhammer/envirods/issues/new?title=Issue%20on%20page%20%2Fsearch.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/danhammer/envirods/issues/new?title=Issue%20on%20page%20%2Flab2.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -257,6 +282,52 @@ title="Open an issue"
   </div>
 </div>
 
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/lab2.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
     </div>
 </div>
 
@@ -268,7 +339,7 @@ title="Open an issue"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1></h1>
+                <h1>Lab 2: Plotting distributions</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -280,36 +351,43 @@ title="Open an issue"
                 
               <div>
                 
-  <h1 id="search-documentation">Search</h1>
-  
-  <noscript>
-  <div class="admonition warning">
-  <p>
-    Please activate JavaScript to enable the search
-    functionality.
-  </p>
-  </div>
-  </noscript>
-  
-  
-  <p>
-    Searching for multiple words only shows matches that contain
-    all words.
-  </p>
-  
-  
-  <form action="" method="get">
-    <input type="text" name="q" aria-labelledby="search-documentation" value="" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-    <input type="submit" value="search" />
-    <span id="search-progress" style="padding-left: 10px"></span>
-  </form>
-  
-  
-  
-  <div id="search-results">
-  
-  </div>
-  
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-2-plotting-distributions">
+<h1>Lab 2: Plotting distributions<a class="headerlink" href="#lab-2-plotting-distributions" title="Permalink to this headline">#</a></h1>
+<p>This is not going to be easy, especially for students with no experience in Python.  But that’s what Thursdays are for! As a reminder, the labs are graded along the following four dimensions:</p>
+<ol class="simple">
+<li><p><strong>Execution</strong>. There are no errors in executing the Notebook cells.</p></li>
+<li><p><strong>Narrative</strong>. Jupyter Notebooks are half code and half narrative prose. The integrated code should just be an illustration of the text.  Explain what you’re doing!</p></li>
+<li><p><strong>Creativity</strong>. You are able to find interesting patterns in the data.</p></li>
+<li><p><strong>Presentation</strong>. Where there are maps and graphs, they are presented nicely.</p></li>
+</ol>
+<p>Even though the code will speak for itself for these questions, explain what you’re doing in the <strong>Text</strong> cells.</p>
+<ol class="simple">
+<li><p>Using the dataset from Week 2 <code class="docutils literal notranslate"><span class="pre">EJSCREEN_demo2.csv</span></code>, create a table with the number of missing values for every environmental justice score in the dataset (e.g., <code class="docutils literal notranslate"><span class="pre">P_RESP_D2</span></code>).  Comment on why some of the variables may have more missing values than others.</p></li>
+<li><p>What is the average population represented by a Census Block Group.  Plot a histogram for all Census Block Groups with populations less than 10,000.</p></li>
+<li><p>How many Census Block Groups are there in California (referring to this particular dataset)?  How does the average score of “Respiratory Hazard” in California Block Groups compare to the rest of the country? Does this make sense to you?</p></li>
+<li><p>Create single plot with <strong>two</strong> overlaid histograms. Plot the <em>density</em> of block groups at different respiratory hazard scores (0-100) for California and for the rest of the United States. (Hint: a parameter <code class="docutils literal notranslate"><span class="pre">density=True</span></code> should be set). The  One for California respiratory hazard.  Make this look nice by adding a legend and making sure that the histograms are not totally opaque. (Hint: set the parameter <code class="docutils literal notranslate"><span class="pre">alpha</span></code> to be less than 1.)  Comment on the skewness of the distributions.</p></li>
+</ol>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "streamlitenv"
+        },
+        kernelOptions: {
+            kernelName: "streamlitenv",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'streamlitenv'</script>
 
               </div>
               
@@ -318,6 +396,13 @@ title="Open an issue"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="lab1.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Lab 1: Basic operations</p>
+        </div>
+    </a>
 </div>
             </footer>
         </div>
