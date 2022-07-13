@@ -1,0 +1,878 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Week 2: Table Manipulations and Environmental Justice &#8212; Environmental Data Science</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Lab 1: Basic operations" href="lab1.html" />
+    <link rel="prev" title="Week 2: Table Manipulations and Environmental Justice" href="lecture3.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Environmental Data Science</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Environmental Data Science
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture1.html">
+   Week 1: Course overview
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture2.html">
+   Week 1: Basic operations and Environmental Justice
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lecture3.html">
+   Week 2: Table Manipulations and Environmental Justice
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Week 2: Table Manipulations and Environmental Justice
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab1.html">
+   Lab 1: Basic operations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab2.html">
+   Lab 2: Plotting distributions
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/danhammer/envirods/master?urlpath=tree/docs/lecture4.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/danhammer/envirods"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/danhammer/envirods/issues/new?title=Issue%20on%20page%20%2Flecture4.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/lecture4.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#application">
+   Application
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Week 2: Table Manipulations and Environmental Justice</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#application">
+   Application
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="week-2-table-manipulations-and-environmental-justice">
+<h1>Week 2: Table Manipulations and Environmental Justice<a class="headerlink" href="#week-2-table-manipulations-and-environmental-justice" title="Permalink to this headline">#</a></h1>
+<p>The <strong>objective</strong> of this lecture is to apply the <code class="docutils literal notranslate"><span class="pre">groupby()</span></code>, <code class="docutils literal notranslate"><span class="pre">merge()</span></code>, and row-filtering from the previous lecture to an application in environmental justice.</p>
+<section id="application">
+<h2>Application<a class="headerlink" href="#application" title="Permalink to this headline">#</a></h2>
+<p>The EJSCREEN indices are used to prioritize federal funding in order to mitigate environmental injustice. Here, we examine the rural and urban representation in the prioritization data. Does this reflect the composition of the United States?</p>
+<p>First, read in a dataset that associates each U.S. county with a CDC assessment of urban/suburban/rural. The counties are uniquely identified by a Federal Information Processing System (FIPS) Code.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Source: https://www.cdc.gov/nchs/data_access/urban_rural.htm#Data_Files_and_Documentation</span>
+<span class="n">nchs</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;https://github.com/danhammer/envirods/blob/main/data/NCHSURCodes2013.xlsx?raw=true&quot;</span><span class="p">)</span>
+<span class="n">nchs</span> <span class="o">=</span> <span class="n">nchs</span><span class="p">[[</span><span class="s2">&quot;FIPS code&quot;</span><span class="p">,</span> <span class="s2">&quot;State Abr.&quot;</span><span class="p">,</span> <span class="s2">&quot;County name&quot;</span><span class="p">,</span> <span class="s2">&quot;2013 code&quot;</span><span class="p">]]</span>
+<span class="n">nchs</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;fips&quot;</span><span class="p">,</span> <span class="s2">&quot;state&quot;</span><span class="p">,</span> <span class="s2">&quot;county&quot;</span><span class="p">,</span> <span class="s2">&quot;classification&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Associate each of the classifications to one of three categories, rather </span>
+<span class="c1"># than one of six - just to simplify our quick analysis</span>
+<span class="n">remap_dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;urban&quot;</span><span class="p">,</span>
+    <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;suburban&quot;</span><span class="p">,</span>
+    <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;suburban&quot;</span><span class="p">,</span>
+    <span class="mi">4</span><span class="p">:</span> <span class="s2">&quot;rural&quot;</span><span class="p">,</span>
+    <span class="mi">5</span><span class="p">:</span> <span class="s2">&quot;rural&quot;</span><span class="p">,</span>
+    <span class="mi">6</span><span class="p">:</span> <span class="s2">&quot;rural&quot;</span>
+<span class="p">}</span>
+
+<span class="c1"># replace the values of the `classification` column based on the key-value </span>
+<span class="c1"># pair in `remap_dict`</span>
+<span class="n">nchs</span> <span class="o">=</span> <span class="n">nchs</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s1">&#39;classification&#39;</span><span class="p">:</span> <span class="n">remap_dict</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, read in the EJ indices and merge the dataset with the urban/suburban/rural dataset, so that each of the Census Blocks in the EJSCREEN data now has the CDC categorization.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ejdf</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/danhammer/envirods/main/data/EJSCREEN_demo2.csv&quot;</span><span class="p">)</span>
+<span class="n">ejdf</span> <span class="o">=</span> <span class="n">ejdf</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">nchs</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;fips&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A dictionary to translate opaque variable names to somthing that</span>
+<span class="c1"># is human-readable</span>
+<span class="n">ejvars_dict</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;P_LDPNT_D2&#39;</span><span class="p">:</span> <span class="s1">&#39;Lead Paint&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;P_DSLPM_D2&#39;</span><span class="p">:</span> <span class="s1">&#39;Diesel Particulate Matter&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;P_CANCR_D2&#39;</span><span class="p">:</span> <span class="s1">&#39;Air Toxics Cancer Risk&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;P_RESP_D2&#39;</span><span class="p">:</span>  <span class="s1">&#39;Respiratory Hazard&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;P_PTRAF_D2&#39;</span><span class="p">:</span> <span class="s1">&#39;Traffic Proximity&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;P_PWDIS_D2&#39;</span><span class="p">:</span> <span class="s1">&#39;Water Discharge&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;P_PNPL_D2&#39;</span><span class="p">:</span>  <span class="s1">&#39;National Priority List&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;P_PRMP_D2&#39;</span><span class="p">:</span>  <span class="s1">&#39;Risk Management Plan&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;P_PTSDF_D2&#39;</span><span class="p">:</span> <span class="s1">&#39;Treatment Storage and Disposal&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;P_OZONE_D2&#39;</span><span class="p">:</span> <span class="s1">&#39;Ozone Proximity&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;P_PM25_D2&#39;</span><span class="p">:</span>  <span class="s1">&#39;PM25&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Each of the variables in the dataset indicates the percentile where that Census Block falls in prioritization. Those census blocks with high percentiles are prioritized for federal funding.  Here, we examine the urban/suburban/rural breakdown of the population living within these high-priority Census Blocks.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="s1">&#39;P_LDPNT_D2&#39;</span>
+<span class="n">temp_df</span> <span class="o">=</span> <span class="n">ejdf</span><span class="p">[</span><span class="n">ejdf</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">90</span><span class="p">]</span>
+<span class="n">temp_df</span> <span class="o">=</span> <span class="n">temp_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;classification&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()[</span><span class="s1">&#39;ACSTOTPOP&#39;</span><span class="p">]</span>
+
+<span class="c1"># add back in the classification variable for future reference</span>
+<span class="n">temp_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">temp_df</span><span class="p">)</span>
+<span class="n">temp_dict</span><span class="p">[</span><span class="s1">&#39;classification&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+<span class="n">temp_dict</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;rural&#39;: 2159353,
+ &#39;suburban&#39;: 8769330,
+ &#39;urban&#39;: 21362290,
+ &#39;classification&#39;: &#39;P_LDPNT_D2&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Instead of just displaying the results for one variable, collect </span>
+<span class="c1"># the results for all in a list.</span>
+<span class="n">res</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Note that ejvars_dict.keys() is a list of the EJ variable names</span>
+<span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">ejvars_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+    <span class="n">temp_df</span> <span class="o">=</span> <span class="n">ejdf</span><span class="p">[</span><span class="n">ejdf</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">90</span><span class="p">]</span>
+    <span class="n">temp_df</span> <span class="o">=</span> <span class="n">temp_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;classification&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()[</span><span class="s1">&#39;ACSTOTPOP&#39;</span><span class="p">]</span>
+    <span class="n">temp_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">temp_df</span><span class="p">)</span>
+    <span class="n">temp_dict</span><span class="p">[</span><span class="s1">&#39;classification&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+    <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp_dict</span><span class="p">)</span>
+
+<span class="c1"># Create a dataframe of the results</span>
+<span class="n">graphing_df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="n">graphing_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rural</th>
+      <th>suburban</th>
+      <th>urban</th>
+      <th>classification</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2159353</td>
+      <td>8769330</td>
+      <td>21362290</td>
+      <td>P_LDPNT_D2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>358539</td>
+      <td>8593184</td>
+      <td>23329310</td>
+      <td>P_DSLPM_D2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2116580</td>
+      <td>11012158</td>
+      <td>19152297</td>
+      <td>P_CANCR_D2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2076324</td>
+      <td>10708628</td>
+      <td>19495515</td>
+      <td>P_RESP_D2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>491038</td>
+      <td>8866869</td>
+      <td>22933011</td>
+      <td>P_PTRAF_D2</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>3829551</td>
+      <td>11166090</td>
+      <td>17275490</td>
+      <td>P_PWDIS_D2</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1580116</td>
+      <td>10192692</td>
+      <td>20513568</td>
+      <td>P_PNPL_D2</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>2231688</td>
+      <td>11590671</td>
+      <td>18468443</td>
+      <td>P_PRMP_D2</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>426142</td>
+      <td>6697207</td>
+      <td>25167032</td>
+      <td>P_PTSDF_D2</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>2416940</td>
+      <td>11462835</td>
+      <td>18195082</td>
+      <td>P_OZONE_D2</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>2146656</td>
+      <td>11409062</td>
+      <td>18518578</td>
+      <td>P_PM25_D2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>We now have a dataframe with the total population in rural, suburban, and urban areas that would be prioritized for EJ funding for each of the 11 indicators.  Now, convert this into a percentage, noting that we can’t just divide by the total population of the United States across all of these cell values due to missing values - and the fact that those missing values aren’t uniformly distributed across the indicators.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pop_df</span> <span class="o">=</span> <span class="n">graphing_df</span><span class="p">[[</span><span class="s2">&quot;rural&quot;</span><span class="p">,</span> <span class="s2">&quot;suburban&quot;</span><span class="p">,</span> <span class="s2">&quot;urban&quot;</span><span class="p">]]</span>
+
+<span class="c1"># first sum over the columns, horizontally</span>
+<span class="n">total_by_class</span> <span class="o">=</span> <span class="n">pop_df</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s2">&quot;columns&quot;</span><span class="p">)</span>
+
+<span class="c1"># then divide, within columns, vertically</span>
+<span class="n">pop_df</span> <span class="o">=</span> <span class="n">pop_df</span><span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="n">total_by_class</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">)</span>
+
+<span class="c1"># add back the classification</span>
+<span class="n">pop_df</span><span class="p">[</span><span class="s2">&quot;classification&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">graphing_df</span><span class="p">[</span><span class="s2">&quot;classification&quot;</span><span class="p">]</span>
+
+<span class="c1"># name it appropriately</span>
+<span class="n">pop_df</span><span class="p">[</span><span class="s2">&quot;indicators&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pop_df</span><span class="o">.</span><span class="n">classification</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">ejvars_dict</span><span class="p">)</span>
+
+<span class="n">pop_df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>rural</th>
+      <th>suburban</th>
+      <th>urban</th>
+      <th>classification</th>
+      <th>indicators</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.066872</td>
+      <td>0.271572</td>
+      <td>0.661556</td>
+      <td>P_LDPNT_D2</td>
+      <td>Lead Paint</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.011107</td>
+      <td>0.266199</td>
+      <td>0.722694</td>
+      <td>P_DSLPM_D2</td>
+      <td>Diesel Particulate Matter</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.065567</td>
+      <td>0.341134</td>
+      <td>0.593299</td>
+      <td>P_CANCR_D2</td>
+      <td>Air Toxics Cancer Risk</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.064321</td>
+      <td>0.331737</td>
+      <td>0.603942</td>
+      <td>P_RESP_D2</td>
+      <td>Respiratory Hazard</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.015207</td>
+      <td>0.274593</td>
+      <td>0.710200</td>
+      <td>P_PTRAF_D2</td>
+      <td>Traffic Proximity</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.118668</td>
+      <td>0.346009</td>
+      <td>0.535323</td>
+      <td>P_PWDIS_D2</td>
+      <td>Water Discharge</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.048941</td>
+      <td>0.315696</td>
+      <td>0.635363</td>
+      <td>P_PNPL_D2</td>
+      <td>National Priority List</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.069112</td>
+      <td>0.358947</td>
+      <td>0.571941</td>
+      <td>P_PRMP_D2</td>
+      <td>Risk Management Plan</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0.013197</td>
+      <td>0.207406</td>
+      <td>0.779397</td>
+      <td>P_PTSDF_D2</td>
+      <td>Treatment Storage and Disposal</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0.075353</td>
+      <td>0.357378</td>
+      <td>0.567269</td>
+      <td>P_OZONE_D2</td>
+      <td>Ozone Proximity</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>0.066928</td>
+      <td>0.355707</td>
+      <td>0.577365</td>
+      <td>P_PM25_D2</td>
+      <td>PM25</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the results. </span>
+<span class="n">pop_df</span> <span class="o">=</span> <span class="n">pop_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">pop_df</span><span class="o">.</span><span class="n">indicators</span><span class="p">)</span>
+
+<span class="n">pop_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;barh&quot;</span><span class="p">,</span> 
+    <span class="n">stacked</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;indicators&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/lecture4_12_1.png" src="_images/lecture4_12_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pop_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;rural&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;barh&quot;</span><span class="p">,</span> 
+    <span class="n">stacked</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:ylabel=&#39;indicators&#39;&gt;
+</pre></div>
+</div>
+<img alt="_images/lecture4_13_1.png" src="_images/lecture4_13_1.png" />
+</div>
+</div>
+<p>Does this plot reflect the composition rest of the country?  <strong>No.</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ejdf</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;classification&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()[</span><span class="s2">&quot;ACSTOTPOP&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="nb">sum</span><span class="p">(</span><span class="n">ejdf</span><span class="p">[</span><span class="s2">&quot;ACSTOTPOP&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>classification
+rural       0.231544
+suburban    0.453165
+urban       0.304910
+Name: ACSTOTPOP, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<p>Should it?  I don’t know.  But this very apparent mismatch is not being adequately addressed at the highest levels of government, as they discuss how to identify “underserved communities.”</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "streamlitenv"
+        },
+        kernelOptions: {
+            kernelName: "streamlitenv",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'streamlitenv'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="lecture3.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Week 2: Table Manipulations and Environmental Justice</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="lab1.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lab 1: Basic operations</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Dan Hammer<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
