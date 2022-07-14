@@ -54,6 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Lab 1: Basic operations" href="lab1.html" />
+    <link rel="prev" title="Week 2: Table Manipulations and Environmental Justice" href="lecture4.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -113,7 +115,7 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="lecture1.html">
    Week 1: Course overview
@@ -132,6 +134,11 @@ const thebe_selector_output = ".output, .cell_output"
  <li class="toctree-l1">
   <a class="reference internal" href="lecture4.html">
    Week 2: Table Manipulations and Environmental Justice
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Week 3: Linear Regression and Environmental Justice
   </a>
  </li>
  <li class="toctree-l1">
@@ -366,7 +373,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data/EJSCREEN_demo3.csv&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://github.com/danhammer/envirods/blob/main/data/EJSCREEN_demo3.csv?raw=true&quot;</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -557,7 +564,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x12e61f9d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x12cc138d0&gt;
 </pre></div>
 </div>
 <img alt="_images/lecture5_4_1.png" src="_images/lecture5_4_1.png" />
@@ -594,7 +601,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x1308d2bd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.lines.Line2D at 0x12e0c0a90&gt;
 </pre></div>
 </div>
 <img alt="_images/lecture5_5_1.png" src="_images/lecture5_5_1.png" />
@@ -695,10 +702,31 @@ intercept: 141.80407727682672
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Source: https://www.cdc.gov/nchs/data_access/urban_rural.htm#Data_Files_and_Documentation</span>
-<span class="n">nchs</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;https://github.com/danhammer/envirods/blob/main/data/NCHSURCodes2013.xlsx?raw=true&quot;</span><span class="p">)</span>
-<span class="n">nchs</span> <span class="o">=</span> <span class="n">nchs</span><span class="p">[[</span><span class="s2">&quot;FIPS code&quot;</span><span class="p">,</span> <span class="s2">&quot;State Abr.&quot;</span><span class="p">,</span> <span class="s2">&quot;County name&quot;</span><span class="p">,</span> <span class="s2">&quot;2013 code&quot;</span><span class="p">]]</span>
-<span class="n">nchs</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;fips&quot;</span><span class="p">,</span> <span class="s2">&quot;state&quot;</span><span class="p">,</span> <span class="s2">&quot;county&quot;</span><span class="p">,</span> <span class="s2">&quot;classification&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">linregress</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">demographic_index</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">D_PM25_2</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;yhat&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">m</span><span class="o">*</span><span class="n">df</span><span class="o">.</span><span class="n">demographic_index</span> <span class="o">+</span> <span class="n">b</span>
+<span class="n">rss</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">df</span><span class="o">.</span><span class="n">D_PM25_2</span> <span class="o">-</span> <span class="n">df</span><span class="o">.</span><span class="n">yhat</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">tss</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">df</span><span class="o">.</span><span class="n">D_PM25_2</span> <span class="o">-</span> <span class="n">df</span><span class="o">.</span><span class="n">D_PM25_2</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="mi">1</span> <span class="o">-</span> <span class="n">rss</span><span class="o">/</span><span class="n">tss</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6742545686316713
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">m</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">linregress</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">demographic_index</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">D_PM25_2</span><span class="p">)</span>
+
+<span class="n">r</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.6742545686316732
 </pre></div>
 </div>
 </div>
@@ -732,6 +760,20 @@ intercept: 141.80407727682672
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="lecture4.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Week 2: Table Manipulations and Environmental Justice</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="lab1.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lab 1: Basic operations</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>
