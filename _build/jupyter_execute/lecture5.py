@@ -15,7 +15,7 @@ from scipy import stats
 # In[2]:
 
 
-df = pandas.read_csv("data/EJSCREEN_demo3.csv")
+df = pandas.read_csv("https://github.com/danhammer/envirods/blob/main/data/EJSCREEN_demo3.csv?raw=true")
 df.describe()
 
 
@@ -152,8 +152,18 @@ r**2
 # In[10]:
 
 
-# Source: https://www.cdc.gov/nchs/data_access/urban_rural.htm#Data_Files_and_Documentation
-nchs = pandas.read_excel("https://github.com/danhammer/envirods/blob/main/data/NCHSURCodes2013.xlsx?raw=true")
-nchs = nchs[["FIPS code", "State Abr.", "County name", "2013 code"]]
-nchs.columns = ["fips", "state", "county", "classification"]
+m, b, _, _, _ = stats.linregress(df.demographic_index, df.D_PM25_2)
+df["yhat"] = m*df.demographic_index + b
+rss = sum((df.D_PM25_2 - df.yhat)**2)
+tss = sum((df.D_PM25_2 - df.D_PM25_2.mean())**2)
+
+1 - rss/tss
+
+
+# In[11]:
+
+
+m, b, r, _, _ = stats.linregress(df.demographic_index, df.D_PM25_2)
+
+r**2
 
