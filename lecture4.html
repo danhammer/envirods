@@ -472,7 +472,7 @@ title="Print to PDF"
 
 <span class="c1"># add back in the classification variable for future reference</span>
 <span class="n">temp_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">temp_df</span><span class="p">)</span>
-<span class="n">temp_dict</span><span class="p">[</span><span class="s1">&#39;classification&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+<span class="n">temp_dict</span><span class="p">[</span><span class="s1">&#39;variable&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
 <span class="n">temp_dict</span>
 </pre></div>
 </div>
@@ -481,7 +481,7 @@ title="Print to PDF"
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;rural&#39;: 2159353,
  &#39;suburban&#39;: 8769330,
  &#39;urban&#39;: 21362290,
- &#39;classification&#39;: &#39;P_LDPNT_D2&#39;}
+ &#39;variable&#39;: &#39;P_LDPNT_D2&#39;}
 </pre></div>
 </div>
 </div>
@@ -497,7 +497,7 @@ title="Print to PDF"
     <span class="n">temp_df</span> <span class="o">=</span> <span class="n">ejdf</span><span class="p">[</span><span class="n">ejdf</span><span class="p">[</span><span class="n">v</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">90</span><span class="p">]</span>
     <span class="n">temp_df</span> <span class="o">=</span> <span class="n">temp_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;classification&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()[</span><span class="s1">&#39;ACSTOTPOP&#39;</span><span class="p">]</span>
     <span class="n">temp_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">temp_df</span><span class="p">)</span>
-    <span class="n">temp_dict</span><span class="p">[</span><span class="s1">&#39;classification&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+    <span class="n">temp_dict</span><span class="p">[</span><span class="s1">&#39;variable&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
     <span class="n">res</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp_dict</span><span class="p">)</span>
 
 <span class="c1"># Create a dataframe of the results</span>
@@ -528,7 +528,7 @@ title="Print to PDF"
       <th>rural</th>
       <th>suburban</th>
       <th>urban</th>
-      <th>classification</th>
+      <th>variable</th>
     </tr>
   </thead>
   <tbody>
@@ -625,10 +625,10 @@ title="Print to PDF"
 <span class="n">pop_df</span> <span class="o">=</span> <span class="n">pop_df</span><span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="n">total_by_class</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s2">&quot;index&quot;</span><span class="p">)</span>
 
 <span class="c1"># add back the classification</span>
-<span class="n">pop_df</span><span class="p">[</span><span class="s2">&quot;classification&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">graphing_df</span><span class="p">[</span><span class="s2">&quot;classification&quot;</span><span class="p">]</span>
+<span class="n">pop_df</span><span class="p">[</span><span class="s2">&quot;variable&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">graphing_df</span><span class="p">[</span><span class="s2">&quot;variable&quot;</span><span class="p">]</span>
 
 <span class="c1"># name it appropriately</span>
-<span class="n">pop_df</span><span class="p">[</span><span class="s2">&quot;indicators&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pop_df</span><span class="o">.</span><span class="n">classification</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">ejvars_dict</span><span class="p">)</span>
+<span class="n">pop_df</span><span class="p">[</span><span class="s2">&quot;indicators&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pop_df</span><span class="p">[</span><span class="s2">&quot;variable&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">ejvars_dict</span><span class="p">)</span>
 
 <span class="n">pop_df</span>
 </pre></div>
@@ -656,7 +656,7 @@ title="Print to PDF"
       <th>rural</th>
       <th>suburban</th>
       <th>urban</th>
-      <th>classification</th>
+      <th>variable</th>
       <th>indicators</th>
     </tr>
   </thead>
@@ -756,7 +756,7 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the results. </span>
-<span class="n">pop_df</span> <span class="o">=</span> <span class="n">pop_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">pop_df</span><span class="o">.</span><span class="n">indicators</span><span class="p">)</span>
+<span class="n">pop_df</span> <span class="o">=</span> <span class="n">pop_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">pop_df</span><span class="p">[</span><span class="s2">&quot;indicators&quot;</span><span class="p">])</span>
 
 <span class="n">pop_df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
     <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;barh&quot;</span><span class="p">,</span> 
