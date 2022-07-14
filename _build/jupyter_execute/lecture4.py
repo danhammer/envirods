@@ -83,7 +83,7 @@ temp_df = temp_df.groupby('classification').sum()['ACSTOTPOP']
 
 # add back in the classification variable for future reference
 temp_dict = dict(temp_df)
-temp_dict['classification'] = v
+temp_dict['variable'] = v
 temp_dict
 
 
@@ -99,7 +99,7 @@ for v in ejvars_dict.keys():
     temp_df = ejdf[ejdf[v] > 90]
     temp_df = temp_df.groupby('classification').sum()['ACSTOTPOP']
     temp_dict = dict(temp_df)
-    temp_dict['classification'] = v
+    temp_dict['variable'] = v
     res.append(temp_dict)
 
 # Create a dataframe of the results
@@ -121,10 +121,10 @@ total_by_class = pop_df.sum(axis="columns")
 pop_df = pop_df.div(total_by_class, axis="index")
 
 # add back the classification
-pop_df["classification"] = graphing_df["classification"]
+pop_df["variable"] = graphing_df["variable"]
 
 # name it appropriately
-pop_df["indicators"] = pop_df.classification.replace(ejvars_dict)
+pop_df["indicators"] = pop_df["variable"].replace(ejvars_dict)
 
 pop_df
 
@@ -133,7 +133,7 @@ pop_df
 
 
 # Plot the results. 
-pop_df = pop_df.set_index(pop_df.indicators)
+pop_df = pop_df.set_index(pop_df["indicators"])
 
 pop_df.plot(
     kind="barh", 
