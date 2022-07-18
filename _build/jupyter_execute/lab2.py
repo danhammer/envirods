@@ -3,12 +3,14 @@
 
 # # Lab 2: Plotting distributions
 # 
-# This is not going to be easy, especially for students with no experience in Python.  But that's what Thursdays are for! As a reminder, the labs are graded along the following four dimensions:
+# This is not going to be easy, especially for students with no experience in Python.  But that's what Thursdays are for! A few notes based on the previous Lab submissions.
 # 
-# 1. **Execution**. There are no errors in executing the Notebook cells.
-# 2. **Narrative**. Jupyter Notebooks are half code and half narrative prose. The integrated code should just be an illustration of the text.  Explain what you're doing!
-# 3. **Creativity**. You are able to find interesting patterns in the data.
-# 4. **Presentation**. Where there are maps and graphs, they are presented nicely.
+# 1. Don't leave code snippets commented in the final submission.  It should be a narrative.  You can comment the in-cell documentation; but not the code.
+# 2. Ensure that the permissions are set so that "Anyone with the link" can view and comment on your Colab notebook.
+# 3. Label your responses with the appropriate question number (e.g., Question 1, Q1, etc.).
+# 4. Run each cell in the Colab so that the responses are saved. You can just "Run All" and then save the notebook.
+# 5. I put a lot of emphasis on the responses to "comment on ..." or "analyze this ..." Be sure to write a quick sentence or two that is both thoughtful and relevant.
+# 6. Multiple ways to answer the same question are given a lot of extra credit.
 # 
 # Even though the code will speak for itself for these questions, explain what you're doing in the **Text** cells.
 # 
