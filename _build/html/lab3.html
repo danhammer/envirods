@@ -50,6 +50,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="Lab 2: Plotting distributions" href="lab2.html" />
@@ -364,13 +366,18 @@ title="Print to PDF"
   <section id="lab-3-linear-regression">
 <h1>Lab 3: Linear regression<a class="headerlink" href="#lab-3-linear-regression" title="Permalink to this headline">#</a></h1>
 <ol>
-<li><p>Generate a dataset that represents a sample of 1,000 cars.  Assume you have collected information on the price of the car, the mileage, and the age of the car.  Think about how the variables may be correlated with each other when you create the dataset (e.g., mileage and age are probably positively related).  Describe the variables with <code class="docutils literal notranslate"><span class="pre">describe()</span></code> and talk about the choices you made to generate a dataset that looks roughly realistic.  (This requires some thought.)</p></li>
+<li><p>Generate a dataset that represents a sample of 10,000 cars.  Assume you have collected information on the price of the car, the mileage, and the age of the car.  Think about how the variables may be correlated with each other when you create the dataset (e.g., mileage and age are probably positively related).  Describe the variables with <code class="docutils literal notranslate"><span class="pre">describe()</span></code> and talk about the choices you made to generate a dataset that looks roughly realistic.  (This requires some thought.)</p>
+<ul class="simple">
+<li><p>The data generating process should look like <span class="math notranslate nohighlight">\(price_i = b + m_1 \cdot mileage_i + m_2 \cdot age_i + \omega_i\)</span> and <span class="math notranslate nohighlight">\(mileage_i = m_3 \cdot age_i + \epsilon_i\)</span> for each car <span class="math notranslate nohighlight">\(i\)</span> that ranges from 0 to 9,999.  There are two random error terms, <span class="math notranslate nohighlight">\(\omega_i\)</span> and <span class="math notranslate nohighlight">\(\epsilon_i\)</span>.  Generate <span class="math notranslate nohighlight">\(\omega\)</span> to be distributed <code class="docutils literal notranslate"><span class="pre">numpy.random.normal(0,</span> <span class="pre">1000,</span> <span class="pre">10000)</span></code> and <span class="math notranslate nohighlight">\(\epsilon\)</span> to be distributed <code class="docutils literal notranslate"><span class="pre">numpy.random.normal(0,</span> <span class="pre">5000,</span> <span class="pre">10000)</span></code>.</p></li>
+<li><p>Describe why you chose values <span class="math notranslate nohighlight">\(m_1\)</span>,</p></li>
+</ul>
+</li>
 <li><p>Plot the distributions of the age, mileage, and price of the car.  Include a vertical line at the mean of each distribution.</p></li>
 <li><p>Estimate a linear regression with price as the dependent (<code class="docutils literal notranslate"><span class="pre">y</span></code>) variable and mileage as the independent (<code class="docutils literal notranslate"><span class="pre">x</span></code>) variable.  Are the numbers what you’d expect?  Why or why not?</p></li>
 <li><p>Use the <code class="docutils literal notranslate"><span class="pre">EJSCREEN_demo3.csv</span></code> data to describe the correlation between <code class="docutils literal notranslate"><span class="pre">OZONE</span></code> and <code class="docutils literal notranslate"><span class="pre">PM25</span></code>.</p></li>
 <li><p>Consider this URL and explore the parameters and response data:</p>
 <p><code class="docutils literal notranslate"><span class="pre">https://api.e7e.dev/news/retrieve?themes=wildlands&amp;limit=2000&amp;daysback=365</span></code></p>
-<p>This API returns geolocated stories for display at <a class="reference external" href="https://news.earthrise.media/">news.earthrise.media</a>.  By  adjusting the URL and using the <code class="docutils literal notranslate"><span class="pre">requests</span></code> library, how many stories were tagged with <code class="docutils literal notranslate"><span class="pre">pollution</span></code> in the last 30 days? Print the titles of the stories.</p>
+<p>This API returns geolocated stories for display at <a class="reference external" href="https://news.earthrise.media/">news.earthrise.media</a>.  By  adjusting the URL and using the <code class="docutils literal notranslate"><span class="pre">requests</span></code> library, how many stories were tagged with <code class="docutils literal notranslate"><span class="pre">pollution</span></code> in the last 30 days? Print the titles of the stories.  (Hint: There is a default number for the <code class="docutils literal notranslate"><span class="pre">limit</span></code> parameter.)</p>
 </li>
 </ol>
 </section>
