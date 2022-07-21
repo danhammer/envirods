@@ -15,7 +15,4 @@
 # 
 #     `https://api.e7e.dev/news/retrieve?themes=wildlands&limit=2000&daysback=365`
 # 
-#     This API returns geolocated stories for display at [news.earthrise.media](https://news.earthrise.media/).  By  adjusting the URL and using the `requests` library, how many stories were tagged with `pollution` in the last 30 days? Prin  
-# 
-# 
-# 
+#     This API returns geolocated stories for display at [news.earthrise.media](https://news.earthrise.media/).  By  adjusting the URL and using the `requests` library, how many stories were tagged with `pollution` in the last 30 days? Print the titles of the stories.
