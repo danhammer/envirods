@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# ### Lab 3: Spatial Data
+# ### Lab 4: Spatial Data
 # 
 # 1. Using the farmers' markets dataset from lecture (`farmers-mkts.csv`) find how many markets sell both wine and cheese.  How many sell plants and nuts?  How many sell poultry and eggs?  How many sell honey and flowers?  Create a function that reports the proportion of all farmers markets in the United States that sell these pairs.
 # 
