@@ -247,3 +247,21 @@ ca_fm.plot(
 
 plt.box("off")
 
+
+# In[13]:
+
+
+import geopandas
+usa = geopandas.read_file("https://raw.githubusercontent.com/danhammer/envirods/main/data/gz_2010_us_040_00_20m.geojson")
+
+
+# In[14]:
+
+
+import pandas
+df = pandas.read_csv("~/Downloads/cafo_cleaned.csv"), 
+gdf = geopandas.GeoDataFrame(
+
+    geometry=geopandas.points_from_xy(dflon", df.y)
+)
+
