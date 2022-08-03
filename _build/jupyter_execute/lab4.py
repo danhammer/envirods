@@ -14,23 +14,3 @@
 # 5. Use the Earthrise news API to plot a map of 1,000 local news stories about wildlands. Use this URL as a reference: `https://api.e7e.dev/news/retrieve?themes=wildlands&limit=2000&daysback=365` but change the parameters.  Where are most of the stories located?  Why are there areas with very few stories?
 # 
 # 
-
-# In[1]:
-
-
-import pandas
-import geopandas
-df = pandas.read_csv("https://raw.githubusercontent.com/danhammer/envirods/main/data/farmers-mkts.csv")
-gdf = geopandas.GeoDataFrame(
-    df, 
-    geometry=geopandas.points_from_xy(df.x, df.y)
-)
-
-
-# In[2]:
-
-
-x = gdf[["Plants", "Nuts"]].dropna()
-results = (x == "Y").sum()
-results / len(x)
-

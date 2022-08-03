@@ -116,20 +116,3 @@ len(set(gdf["country"]))
 
 gdf.groupby(["country", "status"])["geometry"].count().reset_index()
 
-
-# In[9]:
-
-
-df["country"] = df["country"].str.strip()
-graphing_df = gdf.groupby(["country", "status"])["geometry"].count().reset_index()
-
-graphing_df["status"] = graphing_df["status"] == "Active"
-xx = graphing_df.groupby(["country", "status"])["geometry"].sum().reset_index()
-
-active = xx[xx["status"] == True]
-inactive = xx[xx["status"] != True]
-
-plt.bar(active["country"], active["geometry"])
-plt.bar(inactive["country"], inactive["geometry"], bottom=active["geometry"])
-plt.show()
-

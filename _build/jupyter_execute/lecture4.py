@@ -109,7 +109,7 @@ graphing_df
 
 # We now have a dataframe with the total population in rural, suburban, and urban areas that would be prioritized for EJ funding for each of the 11 indicators.  Now, convert this into a percentage, noting that we can't just divide by the total population of the United States across all of these cell values due to missing values - and the fact that those missing values aren't uniformly distributed across the indicators.
 
-# In[8]:
+# In[10]:
 
 
 pop_df = graphing_df[["rural", "suburban", "urban"]]
@@ -129,7 +129,7 @@ pop_df["indicators"] = pop_df["variable"].replace(ejvars_dict)
 pop_df
 
 
-# In[9]:
+# In[11]:
 
 
 # Plot the results. 
@@ -141,7 +141,7 @@ pop_df.plot(
 )
 
 
-# In[10]:
+# In[12]:
 
 
 pop_df.sort_values(by=['rural']).plot(
@@ -152,7 +152,7 @@ pop_df.sort_values(by=['rural']).plot(
 
 # Does this plot reflect the composition rest of the country?  **No.**
 
-# In[11]:
+# In[13]:
 
 
 ejdf.groupby("classification").sum()["ACSTOTPOP"] / sum(ejdf["ACSTOTPOP"])
