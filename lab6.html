@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Lab 3: Linear regression &#8212; Environmental Data Science</title>
+    <title>Lab 6: Emissions aggregations and comparisons &#8212; Environmental Data Science</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -50,12 +50,9 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Lab 4: Spatial Data" href="lab4.html" />
-    <link rel="prev" title="Lab 2: Plotting distributions" href="lab2.html" />
+    <link rel="prev" title="Lab 5: Putting in the repetitions" href="lab5.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -166,8 +163,8 @@ const thebe_selector_output = ".output, .cell_output"
    Lab 2: Plotting distributions
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="lab3.html">
    Lab 3: Linear regression
   </a>
  </li>
@@ -181,8 +178,8 @@ const thebe_selector_output = ".output, .cell_output"
    Lab 5: Putting in the repetitions
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lab6.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    Lab 6: Emissions aggregations and comparisons
   </a>
  </li>
@@ -245,7 +242,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/danhammer/envirods/main?urlpath=tree/docs/lab3.ipynb"
+        <a href="https://mybinder.org/v2/gh/danhammer/envirods/main?urlpath=tree/docs/lab6.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -305,7 +302,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/danhammer/envirods/issues/new?title=Issue%20on%20page%20%2Flab3.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/danhammer/envirods/issues/new?title=Issue%20on%20page%20%2Flab6.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -333,7 +330,7 @@ title="Open an issue"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/lab3.ipynb"
+        <a href="_sources/lab6.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -382,7 +379,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Lab 3: Linear regression</h1>
+                <h1>Lab 6: Emissions aggregations and comparisons</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -394,22 +391,13 @@ title="Print to PDF"
                 
               <div>
                 
-  <section id="lab-3-linear-regression">
-<h1>Lab 3: Linear regression<a class="headerlink" href="#lab-3-linear-regression" title="Permalink to this headline">#</a></h1>
-<ol>
-<li><p>Generate a dataset that represents a sample of 10,000 cars.  Assume you have collected information on the price of the car, the mileage, and the age of the car.  Think about how the variables may be correlated with each other when you create the dataset (e.g., mileage and age are probably positively related).  Describe the variables with <code class="docutils literal notranslate"><span class="pre">describe()</span></code> and talk about the choices you made to generate a dataset that looks roughly realistic.  (This requires some thought.)</p>
-<ul class="simple">
-<li><p>The data generating process should look like <span class="math notranslate nohighlight">\(price_i = b + m_1 \cdot mileage_i + m_2 \cdot age_i + \omega_i\)</span> and <span class="math notranslate nohighlight">\(mileage_i = m_3 \cdot age_i + \epsilon_i\)</span> for each car <span class="math notranslate nohighlight">\(i\)</span> that ranges from 0 to 9,999.  There are two random error terms, <span class="math notranslate nohighlight">\(\omega_i\)</span> and <span class="math notranslate nohighlight">\(\epsilon_i\)</span>.  Generate <span class="math notranslate nohighlight">\(\omega\)</span> to be distributed <code class="docutils literal notranslate"><span class="pre">numpy.random.normal(0,</span> <span class="pre">1000,</span> <span class="pre">10000)</span></code> and <span class="math notranslate nohighlight">\(\epsilon\)</span> to be distributed <code class="docutils literal notranslate"><span class="pre">numpy.random.normal(0,</span> <span class="pre">5000,</span> <span class="pre">10000)</span></code>.</p></li>
-<li><p>Describe why you chose values <span class="math notranslate nohighlight">\(m_1\)</span>, <span class="math notranslate nohighlight">\(m_2\)</span>, <span class="math notranslate nohighlight">\(m_3\)</span>, and <span class="math notranslate nohighlight">\(b\)</span>.</p></li>
-</ul>
-</li>
-<li><p>Plot the distributions of the age, mileage, and price of the car.  Include a vertical line at the mean of each distribution.</p></li>
-<li><p>Estimate a linear regression with price as the dependent (<code class="docutils literal notranslate"><span class="pre">y</span></code>) variable and mileage as the independent (<code class="docutils literal notranslate"><span class="pre">x</span></code>) variable.  Are the numbers what you’d expect?  Why or why not?</p></li>
-<li><p>Use the <code class="docutils literal notranslate"><span class="pre">EJSCREEN_demo3.csv</span></code> data to describe the correlation between <code class="docutils literal notranslate"><span class="pre">OZONE</span></code> and <code class="docutils literal notranslate"><span class="pre">PM25</span></code>.</p></li>
-<li><p>Consider this URL and explore the parameters and response data:</p>
-<p><code class="docutils literal notranslate"><span class="pre">https://api.e7e.dev/news/retrieve?themes=wildlands&amp;limit=2000&amp;daysback=365</span></code></p>
-<p>This API returns geolocated stories for display at <a class="reference external" href="https://news.earthrise.media/">news.earthrise.media</a>.  By  adjusting the URL and using the <code class="docutils literal notranslate"><span class="pre">requests</span></code> library, how many stories were tagged with <code class="docutils literal notranslate"><span class="pre">pollution</span></code> in the last 30 days? Print the titles of the stories.  (Hint: There is a default number for the <code class="docutils literal notranslate"><span class="pre">limit</span></code> parameter.)</p>
-</li>
+  <section id="lab-6-emissions-aggregations-and-comparisons">
+<h1>Lab 6: Emissions aggregations and comparisons<a class="headerlink" href="#lab-6-emissions-aggregations-and-comparisons" title="Permalink to this headline">#</a></h1>
+<p>This lab will focus exclusively on carbon emissions from the steel sector, using the following dataset:</p>
+<p><code class="docutils literal notranslate"><span class="pre">https://raw.githubusercontent.com/danhammer/envirods/main/data/steel.geojson</span></code></p>
+<ol class="simple">
+<li><p>Create a <em>single</em> chart that shows (a) annual emissions from the steel sector in China since 2018; and (b) annual emissions from the rest of the world since 2018. (Hint: stacked bar chart is the one of the easiest ways to answer this question, given what we learned in lecture.)  Bonus if you can do this by <em>month</em> since January 2018.</p></li>
+<li><p>What proportion of steel emissions since 2019 have come from the top 20 highest-emitting facilities in the world over that timeframe?</p></li>
 </ol>
 </section>
 
@@ -440,19 +428,12 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="lab2.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="lab5.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Lab 2: Plotting distributions</p>
+            <p class="prev-next-title">Lab 5: Putting in the repetitions</p>
         </div>
-    </a>
-    <a class='right-next' id="next-link" href="lab4.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Lab 4: Spatial Data</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             </footer>
